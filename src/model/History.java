@@ -66,7 +66,7 @@ public class History{
 
 //Sets
 
-	public void setStatus(String status){
+	public void setStatus(boolean status){
 
 		this.status = status;
 	}

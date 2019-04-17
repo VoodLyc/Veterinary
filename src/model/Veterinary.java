@@ -41,17 +41,17 @@ public class Veterinary{
 
 //Sets
 
-	public void setName(){
+	public void setName(String name){
 
 		this.name = name;
 	}
 
-	public void setRoom(){
+	public void setRoom(int n){
 
-		this.room[n] = room;
+		this.room[n] = room[n];
 	}
 
-	public void setOwner(){
+	public void setOwner(ArrayList<Owner> owner){
 
 		this.owner = owner;
 	}

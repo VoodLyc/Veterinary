@@ -1,4 +1,4 @@
-import model;
+package model;
 
 public class Room{
 
@@ -53,9 +53,9 @@ public class Room{
 		this.pet = pet;
 	}
 
-	public void setActualHistory(History history){
+	public void setActualHistory(History actualHistory){
 
-		this.history = history;
+		this.actualHistory = actualHistory;
 	}
 
 	public void setActualDate(Date actualDate){

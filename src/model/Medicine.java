@@ -46,7 +46,7 @@ public class Medicine{
 		this.dose = dose;
 	}
 
-	public void int setFrequency(int frequency){
+	public void setFrequency(int frequency){
 
 		this.frequency = frequency;
 	}
