@@ -1,6 +1,7 @@
 package ui;
 import model.Date;
-import model.History;
+import model.HistoryOfMedicalRecords;
+import model.MedicalRecord;
 import model.Medicine;
 import model.Owner;
 import model.Pet;

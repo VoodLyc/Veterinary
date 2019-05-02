@@ -12,14 +12,16 @@ public class Veterinary{
 	private String name;
 	private Room[] rooms;
 	private ArrayList<Owner> owners;
+	private ArrayList<HistoryOfMedicalRecords> histories;
 
 //Constructor
 
 	public Veterinary(String name){
 
 		this.name = name;
-		this.rooms = new Room[AMOUNT_OF_ROOMS];
-		this.owners = new ArrayList<Owner>();
+		rooms = new Room[AMOUNT_OF_ROOMS];
+		owners = new ArrayList<Owner>();
+		histories = new ArrayList<HistoryOfMedicalRecords>();
 	}
 
 //Gets
@@ -29,14 +31,14 @@ public class Veterinary{
 		return name;
 	}
 
-	public Room getRoom(int n){
-		
-		return rooms[n];
-	}
-
 	public ArrayList<Owner> getOwner(){
 
 		return owners;
+	}
+
+	public ArrayList<HistoryOfMedicalRecords> getHistories(){
+
+		return histories;
 	}
 
 //Sets
@@ -46,34 +48,16 @@ public class Veterinary{
 		this.name = name;
 	}
 
-	public void setRoom(int n){
-
-		this.rooms[n] = rooms[n];
-	}
-
 	public void setOwner(ArrayList<Owner> owners){
 
 		this.owners = owners;
 	}
 
+	public void setHistories(ArrayList<HistoryOfMedicalRecords> histories){
+
+		this.histories = histories;
+	}
+
 //Methods
- 
-	public boolean hospitalizationService(){
-
-	}
-
-/**
-	*This method allows checking if the room is available (No pets are hospitalized in that room)<br>
-
-	*<b>pre:</b> The room cannot be null<br>
-
-	*<b>post:</b> The status of the room was checked<br>
-
-	*@param i Is the number of the room you want to check<br>
-
-	*@return The status of the room (Whether it is available or not)<br>
-*/	
-	public boolean checkIfTheRoomIsAvailable(int i){
-	}
 
 }

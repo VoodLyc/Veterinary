@@ -2,30 +2,26 @@ package model;
 
 public class Room{
 
-//Constants
-
 //Attributes
 
-	private int numberRoom;
+	private boolean availability;
 	private Pet pet;
-	private History actualHistory;
-	private Date actualDate;
+	private MedicalRecord record;
 
 //Constructor
 
-	public Room(int numberRoom, Pet pet, History actualHistory, Date actualDate){
+	public Room(boolean availability, Pet pet, MedicalRecord record){
 
-		this.numberRoom = numberRoom;
+		this.availability = availability;
 		this.pet = pet;
-		this.actualHistory = actualHistory;
-		this.actualDate = actualDate;
+		this.record = record;
 	}
 
-//Gets
+//Getters
 
-	public int getNumberRoom(){
+	public boolean getAvailability(){
 
-		return numberRoom;
+		return availability;
 	}
 
 	public Pet getPet(){
@@ -33,21 +29,16 @@ public class Room{
 		return pet;
 	}
 
-	public History getActualHistory(){
+	public MedicalRecord getRecord(){
 
-		return actualHistory;
+		return record;
 	}
 
-	public Date getActualDate(){
+//Setters
 
-		return actualDate;
-	}
+	public void setAvailability(boolean availability){
 
-//Sets
-
-	public void setNumberRoom(int numberRoom){
-
-		this.numberRoom = numberRoom;
+		this.availability = availability;
 	}
 
 	public void setPet(Pet pet){
@@ -55,14 +46,10 @@ public class Room{
 		this.pet = pet;
 	}
 
-	public void setActualHistory(History actualHistory){
+	public void setRecord(MedicalRecord record){
 
-		this.actualHistory = actualHistory;
+		this.record = record;
 	}
 
-	public void setActualDate(Date actualDate){
-
-		this.actualDate = actualDate;
-	}
 }
 

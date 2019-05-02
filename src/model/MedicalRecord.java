@@ -1,4 +1,5 @@
 package model;
+import java.util.ArrayList;
 
 public class MedicalRecord{
 
@@ -64,7 +65,7 @@ public class MedicalRecord{
 
 	public ArrayList<Medicine> getMedicines(){
 
-		return medicines
+		return medicines;
 	}
 
 //Setters
@@ -97,6 +98,11 @@ public class MedicalRecord{
 	public void setDiagnosis(String diagnosis){
 
 		this.diagnosis = diagnosis;
+	}
+
+	public void setMedicines(ArrayList<Medicine> medicines){
+
+		this.medicines = medicines;
 	}
 
 }

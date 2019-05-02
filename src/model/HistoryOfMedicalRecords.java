@@ -1,113 +1,42 @@
 package model;
 import java.util.ArrayList;
 
-public class History{
+public class HistoryOfMedicalRecords{
 
 //Attributes
 
-	private boolean status;
-	private String symptom;
-	private String diagnosis;
-	private String ownerName;
-	private String ownerId;
 	private String petName;
-	private Date datea;
-	private ArrayList<Medicine> medicine;
+	private ArrayList<MedicalRecord> records;
 
 //Constructor
 
-	public History(boolean status, String symptom, String diagnosis, String ownerName, String ownerId, String petName, Date datea){
+	public HistoryOfMedicalRecords(String petName){
 
-		this.status = status;
-		this.symptom = symptom;
-		this.diagnosis = diagnosis;
-		this.ownerName = ownerName;
-		this.ownerId = ownerId;
 		this.petName = petName;
-		this.datea = datea;
+		records = new ArrayList<MedicalRecord>();
 	}
 
-//Gets
-
-	public boolean getStatus(){
-
-		return status;
-	}
-
-	public String getSymptom(){
-
-		return symptom;
-	}
-
-	public String getDiagnosis(){
-
-		return diagnosis;
-	}
-
-	public String getOwnerName(){
-
-		return ownerName;
-	}
-
-	public String getOwnerId(){
-
-		return ownerId;
-	}
+//Getters
 
 	public String getPetName(){
 
 		return petName;
 	}
 
-	public Date getDateA(){
+	public ArrayList<MedicalRecord> getRecords(){
 
-		return datea;
+		return records;
 	}
 
-	public ArrayList<Medicine> getMedicine(){
-
-		return medicine;
-	}
-
-//Sets
-
-	public void setStatus(boolean status){
-
-		this.status = status;
-	}
-
-	public void setSyptom(String symptom){
-
-		this.symptom = symptom;
-	}
-
-	public void setDiagnosis(String diagnosis){
-
-		this.diagnosis = diagnosis;
-	}
-
-	public void setOwnerName(String ownerName){
-
-		this.ownerName = ownerName;
-	}
-
-	public void setOwnerId(String ownerId){
-
-		this.ownerId = ownerId;
-	}
+//Setters
 
 	public void setPetName(String petName){
 
 		this.petName = petName;
 	}
 
-	public void setDateA(Date datea){
+	public void setRecords(ArrayList<MedicalRecord> records){
 
-		this.datea = datea;
-	}
-
-	public void setMedicine(ArrayList<Medicine> medicine){
-
-		this.medicine = medicine;
+		this.records = records;
 	}
 }

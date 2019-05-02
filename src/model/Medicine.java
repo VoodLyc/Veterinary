@@ -6,14 +6,16 @@ public class Medicine{
 
 	private String name;
 	private String dose;
-	private int frequency;
+	private double costPerDose;
+	private double frequency;
 
 //Constructor
 
-	public Medicine(String name, String dose, int frequency){
+	public Medicine(String name, String dose, double costPerDose, double frequency){
 
 		this.name = name;
 		this.dose = dose;
+		this.costPerDose = costPerDose;
 		this.frequency = frequency;
 	}
 
@@ -29,7 +31,12 @@ public class Medicine{
 		return dose;
 	}
 
-	public int getFrequency(){
+	public double getCostPerDose(){
+
+		return costPerDose;
+	}
+
+	public double getFrequency(){
 
 		return frequency;
 	}
@@ -46,7 +53,12 @@ public class Medicine{
 		this.dose = dose;
 	}
 
-	public void setFrequency(int frequency){
+	public void setCostPerDose(double costPerDose){
+
+		this.costPerDose = costPerDose;
+	}
+
+	public void setFrequency(double frequency){
 
 		this.frequency = frequency;
 	}

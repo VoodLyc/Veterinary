@@ -9,18 +9,17 @@ public class Owner{
 	private String id;
 	private String address;
 	private int phone;
-	private ArrayList<Pet> pet;
+	private ArrayList<Pet> pets;
 
 //Constructor
 
-	public Owner(String name, String id, String address, int phone, Pet pet){
+	public Owner(String name, String id, String address, int phone){
 
 		this.name = name;
 		this.id = id;
 		this.address = address;
 		this.phone = phone;
-		this.pet = new ArrayList<Pet>();
-		this.pet.add(pet);
+		pets = new ArrayList<Pet>();
 	}
 
 //Gets
@@ -45,9 +44,9 @@ public class Owner{
 		return phone;
 	}
 
-	public ArrayList<Pet> getPet(){
+	public ArrayList<Pet> getPets(){
 
-		return pet;
+		return pets;
 	}
 
 //Sets
@@ -72,8 +71,8 @@ public class Owner{
 		this.phone = phone;
 	}
 
-	public void setPet(ArrayList<Pet> pet){
+	public void setPets(ArrayList<Pet> pets){
 
-		this.pet = pet;
+		this.pets = pets;
 	}
 }
