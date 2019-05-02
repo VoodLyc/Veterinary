@@ -54,6 +54,11 @@ public class History{
 		return ownerId;
 	}
 
+	public String getPetName(){
+
+		return petName;
+	}
+
 	public Date getDateA(){
 
 		return datea;
@@ -89,6 +94,16 @@ public class History{
 	public void setOwnerId(String ownerId){
 
 		this.ownerId = ownerId;
+	}
+
+	public void setPetName(String petName){
+
+		this.petName = petName;
+	}
+
+	public void setDateA(Date datea){
+
+		this.datea = datea;
 	}
 
 	public void setMedicine(ArrayList<Medicine> medicine){

@@ -1,32 +1,29 @@
 package model;
-import java.util.ArrayList;
 
 public class Pet{
 
 //Constants
 
-	public final static String CAT = "C";
-	public final static String DOG = "D";
-	public final static String BIRD = "B";
-	public final static String OTHER = "O";
+	public final static String CAT = "Cat";
+	public final static String DOG = "Dog";
+	public final static String BIRD = "Bird";
+	public final static String OTHER = "Other";
 
 //Attributes
 
 	private String name;
 	private int age;
-	private char type;
+	private String type;
 	private double weight;
-	private ArrayList<History> history;
 
 //Constructor
 
-	public Pet(String name, int age, char type, double weight){
+	public Pet(String name, int age, String type, double weight){
 
 		this.name = name;
 		this.age = age;
 		this.type = type;
 		this.weight = weight;
-		this.history = new ArrayList<History>();
 	}
 
 //Gets
@@ -41,7 +38,7 @@ public class Pet{
 		return age;
 	}
 
-	public char getType(){
+	public String getType(){
 
 		return type;
 	}
@@ -49,11 +46,6 @@ public class Pet{
 	public double getWeight(){
 
 		return weight;
-	}
-
-	public ArrayList<History> getHistory(){
-
-		return history;
 	}
 
 //Sets
@@ -68,7 +60,7 @@ public class Pet{
 		this.age = age;
 	}
 
-	public void setType(char type){
+	public void setType(String type){
 
 		this.type = type;
 	}
@@ -76,11 +68,5 @@ public class Pet{
 	public void setWeight(double weight){
 
 		this.weight = weight;
-	}
-
-	public void setHistory(ArrayList<History> history){
-
-		this.history = history;
-	}
-
+	}	
 }

@@ -2,6 +2,8 @@ package model;
 
 public class Room{
 
+//Constants
+
 //Attributes
 
 	private int numberRoom;
