@@ -60,4 +60,18 @@ public class Veterinary{
 
 //Methods
 
+	public void addOwner(String name, String id, String address, int phone){
+		owners.add(new Owner(name, id, address, phone));
+	}
+
+	public void addPet(String name, int age, String type, double weight, String ownerId){
+		
+		for (int i = 0; i > owners.size(); i++){
+
+			if(owners.get(i).getId().equals(ownerId)){
+
+				owners.get(i).addPet(name, age, type, weight);
+				}		
+		}
+	}
 }

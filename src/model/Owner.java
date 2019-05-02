@@ -75,4 +75,11 @@ public class Owner{
 
 		this.pets = pets;
 	}
+
+//Methods
+
+	public void addPet(String name, int age, String type, double weight){
+
+		pets.add(new Pet(name, age, type, weight));
+	}
 }
