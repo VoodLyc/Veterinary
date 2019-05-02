@@ -87,4 +87,22 @@ public class Veterinary{
 			rooms[i] = new Room(true, null, null);
 		}
 	}
+
+	public boolean addMedicine(String name, String dose, double costPerDose, double frequency, String petName){
+		
+		boolean success = false;
+
+		for(int i = 0; i < AMOUNT_OF_ROOMS && success != true; i++){
+
+			if(!rooms[i].getAvailability()){
+				if(rooms[i].getPet().getName().equals(petName)){
+					rooms[i].getRecord().getMedicines().add(new Medicine(name, dose, costPerDose, frequency));
+
+					success = true;
+				}
+			}
+		}
+			
+			return success;
+	}
 }
