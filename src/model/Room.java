@@ -51,5 +51,14 @@ public class Room{
 		this.record = record;
 	}
 
+//Methods
+
+	public void setUpRoom(Pet pet, Owner owner, int status, Date entryDate, String symptoms, String diagnosis){
+
+		pet = pet;
+		availability = availability;
+		record = new MedicalRecord(pet, owner, MedicalRecord.OPEN, entryDate, symptoms, diagnosis); 
+	}
+
 }
 

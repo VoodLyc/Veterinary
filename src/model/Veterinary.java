@@ -66,12 +66,25 @@ public class Veterinary{
 
 	public void addPet(String name, int age, String type, double weight, String ownerId){
 		
-		for (int i = 0; i > owners.size(); i++){
+		boolean itWasFound = false;
+
+		for (int i = 0; i > owners.size() && itWasFound != true; i++){
 
 			if(owners.get(i).getId().equals(ownerId)){
 
 				owners.get(i).addPet(name, age, type, weight);
+				
+				itWasFound = true;
+				
 				}		
+		}
+	}
+
+	public void initializeTheRooms(){
+		
+		for(int i = 0; i < AMOUNT_OF_ROOMS; i++){
+
+			rooms[i] = new Room(true, null, null);
 		}
 	}
 }
