@@ -105,4 +105,9 @@ public class Veterinary{
 			
 			return success;
 	}
+
+	public boolean hospitalizeAPet(String ownerName, String petName, int day, int month, int year, String symptoms, String diagnosis){
+
+		
+	}
 }
