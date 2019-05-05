@@ -106,8 +106,80 @@ public class Veterinary{
 			return success;
 	}
 
-	public boolean hospitalizeAPet(String ownerName, String petName, int day, int month, int year, String symptoms, String diagnosis){
+	public String checkIfTheRoomIsAvailable(int number){
 
+		String message = "The room isn't available";
+
+			if(rooms[number].getAvailability() == true){
+ 
+				message = "The room is available";
+			}
 		
+			return message;
+		}
+
+	public String hospitalizePet(Pet pet, Owner owner, int status, Date entryDate, String symptoms, String diagnosis, int numberOfRoom){
+
+		String message = "The pet couldn't hospitalized";
+
+		if(pet != null){
+		
+		rooms[numberOfRoom].setUpRoom(pet, owner, status, entryDate, symptoms, diagnosis);
+
+		message = "The pet was hospitalized";
+
+		}
+
+		return message;
+	}
+
+		public boolean unlikPetOfTheRoom(String petName){
+
+		boolean success = false;
+		MedicalRecord record;
+
+		for(int i = 0; i < AMOUNT_OF_ROOMS && success != true; i++){
+
+			if(rooms[i].getPet().getName().equals(petName)){
+
+			for(int j = 0; j < histories.size() && success != true; j++){
+				
+				if(histories.get(j).getPetName().equals(petName)){
+
+				record = rooms[i].getRecord();
+				histories.get(j).addMedicalRecord(record);
+				rooms[i].emptyRoom();
+				success = true;
+				}
+			}
+		}
+	}
+
+		return success;
+	}
+
+	public String dischargeThePetFromTheVeterinary(String petName){
+		
+		boolean success = false;
+		String report = "";
+		
+		if(unlikPetOfTheRoom(petName) == true){
+
+			for(int i = 0; i < AMOUNT_OF_ROOMS && success != true; i++){
+
+				if(rooms[i].getPet().getName().equals(petName)){
+
+					report = "MEDICAL RECORD: " + "\n";
+					report += rooms[i].showFullReport();
+					success = true;
+				}
+				else{
+
+					report = "The pet couldn't be found. Please enter the name again and make sure it's the right one.";
+				}
+			}
+		}
+
+		return report;
 	}
 }

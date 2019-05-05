@@ -39,4 +39,11 @@ public class HistoryOfMedicalRecords{
 
 		this.records = records;
 	}
+
+//Methods 
+
+	public void addMedicalRecord(MedicalRecord record){
+
+		records.add(record);
+	}
 }

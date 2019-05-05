@@ -62,4 +62,18 @@ public class Medicine{
 
 		this.frequency = frequency;
 	}
+
+//Methods
+
+	public String showReportMedicine(){
+
+		String report = "";
+
+		report += "The name of the medicine is: " + name + "\n";
+		report += "The dose of the medicine is: " + dose + "\n";
+		report += "The cost per dose of the medicine is: " + costPerDose + "\n";
+		report += "The frequency of the medicine is: " + frequency + "\n";
+
+		return report;
+	}
 }

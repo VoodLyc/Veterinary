@@ -105,4 +105,37 @@ public class MedicalRecord{
 		this.medicines = medicines;
 	}
 
+	public String showReportOfMedicines(){
+
+		String report = "";
+
+		for(int i = 0; i < medicines.size(); i++){
+
+			report = "The medicines to the pet are: " + "\n";
+			report += "\n" + medicines.get(i).showReportMedicine();
+		}
+
+		return report;
+	}
+
+	public String showReportOfMedicalRecord(){
+
+		String report = "";
+		String s = "";
+
+		if(status == CLOSED){
+			
+			s = "Closed";
+		}
+		
+		else{
+			s = "Open";
+		}
+
+		report += "The status of the Medical record is: " + s + "\n";
+		report += "The symptoms are: " + symptoms + "\n";
+		report += "The diagnosis is: " + diagnosis + "\n";
+
+		return report;
+	}
 }

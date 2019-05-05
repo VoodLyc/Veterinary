@@ -50,4 +50,15 @@ public class Date{
 	{
 		this.year = year;
 	}
+
+//Methods
+
+	public String showReportEntryDate(){
+
+		String report = "";
+
+		report = "The Entry date was: " + day + "/" + month + "/" + year + "\n";
+
+		return report;
+	}
 }

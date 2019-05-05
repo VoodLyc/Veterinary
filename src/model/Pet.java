@@ -68,5 +68,19 @@ public class Pet{
 	public void setWeight(double weight){
 
 		this.weight = weight;
+	}
+
+//Methods
+
+	public String showReportPet(){
+
+		String report = "";
+
+		report += "The name of the pet is: " + name + "\n";
+		report += "The age of the pet is: " + age + "\n";
+		report += "The type of the pet is: " + type + "\n";
+		report += "The weight of the pet is: " + weight + "\n";
+
+		return report;
 	}	
 }

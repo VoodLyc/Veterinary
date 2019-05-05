@@ -60,5 +60,23 @@ public class Room{
 		record = new MedicalRecord(pet, owner, MedicalRecord.OPEN, entryDate, symptoms, diagnosis); 
 	}
 
+	public void emptyRoom(){
+
+		availability = true;
+		pet = null;
+		record = null;
+	}
+
+	public String showFullReport(){
+
+		String report = "";
+
+		report += pet.showReportPet() + "\n";
+		report += record.getEntryDate().showReportEntryDate() + "\n";
+		report += record.showReportOfMedicalRecord() + "\n";
+		report += record.showReportOfMedicines() + "\n";
+
+		return report;
+	}
 }
 
