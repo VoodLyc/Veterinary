@@ -80,7 +80,7 @@ public class Veterinary{
 		}
 	}
 
-	public void initializeTheRooms(){
+	public void setUpVeterinary(){
 		
 		for(int i = 0; i < AMOUNT_OF_ROOMS; i++){
 
@@ -106,36 +106,71 @@ public class Veterinary{
 			return success;
 	}
 
-	public String checkIfTheRoomIsAvailable(int number){
+/**
+	*This method allows checking if the room is available (No pets are hospitalized in that room)<br>
 
-		String message = "The room isn't available";
+	*<b>pre:</b> The room cannot be null<br>
 
-			if(rooms[number].getAvailability() == true){
+	*<b>post:</b> The status of the room was checked<br>
+
+	*@param i Is the number of the room you want to check<br>
+
+	*@return The status of the room (Whether it is available or not)<br>
+*/
+	public boolean checkIfTheRoomIsAvailable(int numberOfRoom){
+
+		boolean success = false;
+
+			if(rooms[numberOfRoom].getAvailability() == true){
  
-				message = "The room is available";
+				success = true;
 			}
 		
-			return message;
+			return success;
 		}
 
-	public String hospitalizePet(Pet pet, Owner owner, int status, Date entryDate, String symptoms, String diagnosis, int numberOfRoom){
+	public String hospitalizePet(Pet pet, Owner owner, int status, Date entryDate, String symptoms, String diagnosis, int numberOfRoom, String name, String dose, double costPerDose, double frequency){
 
+		String petName = "";
 		String message = "The pet couldn't hospitalized";
 
 		if(pet != null){
-		
-		rooms[numberOfRoom].setUpRoom(pet, owner, status, entryDate, symptoms, diagnosis);
 
-		message = "The pet was hospitalized";
+			if(checkIfTheRoomIsAvailable(numberOfRoom) == true){
 
+				rooms[numberOfRoom].setUpRoom(pet, owner, status, entryDate, symptoms, diagnosis);
+
+				petName = pet.getName();
+				addMedicine(name, dose, costPerDose, frequency, petName);
+				addHistoryOfMedicalRecords(petName);
+				addMedicalRecord(petName);
+				message = "The pet was hospitalized";
+			}
 		}
 
 		return message;
 	}
 
-		public boolean unlikPetOfTheRoom(String petName){
+	public String showFullReport(){
 
-		boolean success = false;
+		String report = "";
+
+		for(int i = 0; i < AMOUNT_OF_ROOMS; i++){
+
+			if(rooms[i].getPet() != null){
+
+				report += rooms[i].showFullReport() + "\n";
+
+			}
+		}
+
+		return report;
+}
+
+
+	public boolean unlikPetOfTheRoom(String petName){
+
+		boolean success = false;  
 		MedicalRecord record;
 
 		for(int i = 0; i < AMOUNT_OF_ROOMS && success != true; i++){
@@ -173,13 +208,106 @@ public class Veterinary{
 					report += rooms[i].showFullReport();
 					success = true;
 				}
-				else{
-
-					report = "The pet couldn't be found. Please enter the name again and make sure it's the right one.";
+					if (success == false){
+						report = "The pet couldn't be found. Please try again with another name or make sure you wrote it correctly.";	
+					}
 				}
 			}
+
+		return report;
+	}
+
+	public void addHistoryOfMedicalRecords(String petName){
+
+		histories.add(new HistoryOfMedicalRecords(petName));
+	}
+
+	public boolean addMedicalRecord(String petName){
+
+		boolean success = false;
+		MedicalRecord record = null;
+
+		for(int i = 0; i < AMOUNT_OF_ROOMS; i++){
+			
+			if(rooms[i].getPet().getName().equals(petName)){
+
+				record = rooms[i].getRecord();
+
+			 if(record != null){
+
+			for(int j = 0; j < histories.size(); j++){
+
+				if(histories.get(j).getPetName().equals(petName)){
+				
+				histories.get(j).addMedicalRecord(record);
+				success = true;
+			}
+		}
+	}
+}
+}
+	return success;	
+}
+
+	public boolean saveMedicalRecordInHistoryOfMedicalRecordsIfTheHistory(String petName){
+
+		boolean success = false;
+		MedicalRecord record = null;
+
+		if(addMedicalRecord(petName) == true){
+
+			success = true;
+		}
+		else{
+
+			for(int i = 0; i < AMOUNT_OF_ROOMS; i++){
+
+				if(rooms[i].getPet().getName().equals(petName)){
+
+				record = rooms[i].getRecord();
+
+				if(record != null){
+
+					addHistoryOfMedicalRecords(petName);
+
+					for(int j = 0; j < histories.size(); j++){
+
+						if(histories.get(j).getPetName().equals(petName)){
+
+							histories.get(j).addMedicalRecord(record);
+							success = true;
+						}
+					}
+				
+			}
+		}
+	}
+}
+	return success;
+}
+
+	public String showOwnerDataWithOwnerNameOrPetName(String name){
+
+		boolean success = false;
+		String report = "";
+
+		for(int i = 0; i < owners.size() && success != true; i++){
+
+			if(owners.get(i).getName().equals(name)){
+
+				report = owners.get(i).showReportOwner();
+				success = true;
+			}
+			else 
+				report = owners.get(i).showReportOfOwnerWithPetName(name);
+		}
+
+		if(report.equals("")){
+
+			report = "No pets or owners were found with that name. Please try again with another name or make sure you wrote it correctly.";
 		}
 
 		return report;
 	}
 }
+

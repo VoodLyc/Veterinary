@@ -94,4 +94,21 @@ public class Owner{
 
 		return report;
 	}
+
+	public String showReportOfOwnerWithPetName(String name){
+
+		boolean success = false;
+		String report = "";
+
+		for(int i = 0; i < pets.size() && success != true; i++){
+
+			if(pets.get(i).getName().equals(name)){
+
+				report = showReportOwner();
+				success = true;
+			}
+		}
+
+		return report;
+	}
 }
